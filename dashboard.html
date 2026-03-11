@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - HopeShare</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-3" href="index.html">
+                <i class="fas fa-hand-holding-heart me-2"></i>HopeShare
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <!-- Dynamic content will be loaded by JS -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Content -->
+    <section class="pt-5 mt-5">
+        <div class="container">
+            <!-- Welcome Banner -->
+            <div class="alert alert-primary d-flex align-items-center mb-4 rounded-4" role="alert" data-aos="fade-down">
+                <i class="fas fa-hand-peace fa-2x me-3"></i>
+                <div>
+                    <h4 class="alert-heading mb-1" id="dashboardTitle">Dashboard</h4>
+                    <p class="mb-0" id="welcomeMessage">Welcome back! Here's what's happening with your donations.</p>
+                </div>
+            </div>
+
+            <!-- Dynamic Dashboard Content -->
+            <div id="dashboardContent" class="animate__animated animate__fadeIn">
+                <!-- Content will be loaded by JavaScript -->
+                <div class="text-center py-5">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+    </script>
+</body>
+    <!-- Add this right before closing body tag -->
+<!-- Add this right before closing body tag -->
+<script>
+    // Ensure user is authenticated before loading dashboard
+    document.addEventListener('DOMContentLoaded', function() {
+        const token = localStorage.getItem('token');
+        const user = localStorage.getItem('user');
+        
+        console.log('Dashboard loaded - Token:', token ? 'Present' : 'Missing');
+        console.log('Dashboard loaded - User:', user ? 'Present' : 'Missing');
+        
+        if (!token || !user) {
+            console.log('No token or user found, redirecting to login');
+            window.location.href = 'index.html';
+            return;
+        }
+        
+        // Load dashboard data
+        loadDashboard();
+    });
+</script>
+</html>

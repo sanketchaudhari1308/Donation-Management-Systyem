@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - HopeShare</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+        }
+        
+        .timeline-content {
+            position: relative;
+            width: 45%;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content {
+            left: 55%;
+        }
+        
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            width: 20px;
+            height: 20px;
+            background: white;
+            transform: rotate(45deg);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content::before {
+            right: -10px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content::before {
+            left: -10px;
+        }
+        
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 20px;
+            }
+            
+            .timeline-content {
+                width: calc(100% - 50px) !important;
+                left: 50px !important;
+            }
+            
+            .timeline-content::before {
+                left: -10px !important;
+            }
+        }
+        
+        .team-card {
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15) !important;
+        }
+        
+        .team-card img {
+            transition: all 0.5s ease;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border: 5px solid #fff;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .team-card:hover img {
+            transform: scale(1.1);
+            border-color: #667eea;
+        }
+        
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            text-align: center;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-size: 32px;
+            margin: 0 auto 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .value-card:hover .value-icon {
+            transform: rotateY(360deg);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+        
+        .counter-box {
+            padding: 30px;
+            border-radius: 15px;
+            background: white;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .counter-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .counter-number {
+            font-size: 48px;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-3" href="index.html">
+                <i class="fas fa-hand-holding-heart me-2"></i>HopeShare
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#campaigns">Campaigns</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle btn btn-light text-primary px-4 ms-3" href="#" id="loginDropdown" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-sign-in-alt"></i> Login
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="index.html?role=user"><i class="fas fa-user me-2"></i>Login as User</a></li>
+                            <li><a class="dropdown-item" href="index.html?role=ngo"><i class="fas fa-building me-2"></i>Login as NGO</a></li>
+                            <li><a class="dropdown-item" href="index.html?role=admin"><i class="fas fa-shield-alt me-2"></i>Login as Admin</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-5 mt-5" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 100px 0;">
+        <div class="container text-center text-white" data-aos="fade-up">
+            <h1 class="display-4 fw-bold mb-4">About HopeShare</h1>
+            <p class="lead mb-0">Connecting hearts, changing lives - one donation at a time</p>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
+                    <img src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Our Story" class="img-fluid rounded-4 shadow">
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <h2 class="fw-bold mb-4" style="color: #667eea;">Our Story</h2>
+                    <p class="lead mb-4">HopeShare was born from a simple idea: technology can make giving easier and more impactful.</p>
+                    <p class="text-muted mb-4">Founded in 2023, we started as a small group of developers and social workers who wanted to bridge the gap between generous donors and dedicated NGOs. Today, we've grown into a platform that connects thousands of donors with verified NGOs across the country.</p>
+                    <p class="text-muted">Our mission is to make donating simple, transparent, and effective. Every rupee donated through HopeShare reaches the intended cause, and donors can track exactly how their contributions are making a difference.</p>
+                    
+                    <div class="row mt-4">
+                        <div class="col-6">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-check-circle text-success fs-4 me-2"></i>
+                                <span>100% Transparent</span>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-check-circle text-success fs-4 me-2"></i>
+                                <span>Verified NGOs</span>
+                            </div>
+                        </div>
+                        <div class="col-6 mt-3">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-check-circle text-success fs-4 me-2"></i>
+                                <span>Track Donations</span>
+                            </div>
+                        </div>
+                        <div class="col-6 mt-3">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-check-circle text-success fs-4 me-2"></i>
+                                <span>24/7 Support</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Counter Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-6 mb-4" data-aos="zoom-in">
+                    <div class="counter-box text-center">
+                        <div class="counter-number">50+</div>
+                        <p class="text-muted mb-0">Partner NGOs</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 mb-4" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="counter-box text-center">
+                        <div class="counter-number">1000+</div>
+                        <p class="text-muted mb-0">Happy Donors</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 mb-4" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="counter-box text-center">
+                        <div class="counter-number">200+</div>
+                        <p class="text-muted mb-0">Campaigns</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 mb-4" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="counter-box text-center">
+                        <div class="counter-number">₹50L+</div>
+                        <p class="text-muted mb-0">Donations</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Values -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-5" data-aos="fade-up">Our Core Values</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4" data-aos="flip-left">
+                    <div class="card value-card h-100 border-0 shadow-sm p-4 text-center">
+                        <div class="value-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Compassion</h4>
+                        <p class="text-muted mb-0">We believe in the power of kindness and empathy to change lives and communities for the better.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="flip-left" data-aos-delay="100">
+                    <div class="card value-card h-100 border-0 shadow-sm p-4 text-center">
+                        <div class="value-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Transparency</h4>
+                        <p class="text-muted mb-0">Every donation is tracked, every rupee is accounted for. No hidden fees, no surprises.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="flip-left" data-aos-delay="200">
+                    <div class="card value-card h-100 border-0 shadow-sm p-4 text-center">
+                        <div class="value-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Trust</h4>
+                        <p class="text-muted mb-0">We verify every NGO and ensure your donations reach the right hands.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Journey Timeline -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-5" data-aos="fade-up">Our Journey</h2>
+            <div class="timeline">
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-content">
+                        <h5 class="fw-bold text-primary">2023 - The Beginning</h5>
+                        <p class="text-muted mb-0">HopeShare was founded with a vision to digitize donations and make giving easier.</p>
+                    </div>
+                </div>
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-content">
+                        <h5 class="fw-bold text-primary">2024 - First Milestone</h5>
+                        <p class="text-muted mb-0">Reached 10+ NGOs and 100+ donors within first 6 months.</p>
+                    </div>
+                </div>
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-content">
+                        <h5 class="fw-bold text-primary">2024 - Expansion</h5>
+                        <p class="text-muted mb-0">Launched mobile app and expanded to 5 new cities.</p>
+                    </div>
+                </div>
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-content">
+                        <h5 class="fw-bold text-primary">2025 - Today</h5>
+                        <p class="text-muted mb-0">50+ NGOs, 1000+ donors, and ₹50 lakhs in donations and growing!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meet Our Team -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-5" data-aos="fade-up">Meet Our Team</h2>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4" data-aos="zoom-in">
+                    <div class="card team-card h-100 border-0 shadow-sm text-center p-4">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="rounded-circle mx-auto mb-3" alt="Team Member">
+                        <h5 class="fw-bold mb-1">Rahul Sharma</h5>
+                        <p class="text-primary mb-2">Founder & CEO</p>
+                        <p class="text-muted small">10+ years in social sector</p>
+                        <div class="social-links">
+                            <a href="#" class="text-primary me-2"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="text-primary me-2"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="text-primary"><i class="fab fa-facebook"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="card team-card h-100 border-0 shadow-sm text-center p-4">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="rounded-circle mx-auto mb-3" alt="Team Member">
+                        <h5 class="fw-bold mb-1">Priya Patel</h5>
+                        <p class="text-primary mb-2">Head of Operations</p>
+                        <p class="text-muted small">Ex-UNICEF, 8 years experience</p>
+                        <div class="social-links">
+                            <a href="#" class="text-primary me-2"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="text-primary me-2"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="text-primary"><i class="fab fa-facebook"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="card team-card h-100 border-0 shadow-sm text-center p-4">
+                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="rounded-circle mx-auto mb-3" alt="Team Member">
+                        <h5 class="fw-bold mb-1">Amit Kumar</h5>
+                        <p class="text-primary mb-2">Technical Lead</p>
+                        <p class="text-muted small">Full-stack developer, Tech for good</p>
+                        <div class="social-links">
+                            <a href="#" class="text-primary me-2"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="text-primary me-2"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="text-primary"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="card team-card h-100 border-0 shadow-sm text-center p-4">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="rounded-circle mx-auto mb-3" alt="Team Member">
+                        <h5 class="fw-bold mb-1">Neha Singh</h5>
+                        <p class="text-primary mb-2">NGO Coordinator</p>
+                        <p class="text-muted small">Connecting with partner NGOs</p>
+                        <div class="social-links">
+                            <a href="#" class="text-primary me-2"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="text-primary me-2"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="text-primary"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-5" data-aos="fade-up">What People Say</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4" data-aos="fade-right">
+                    <div class="card h-100 border-0 shadow-sm p-4">
+                        <div class="d-flex mb-3">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                        <p class="text-muted mb-3">"HopeShare made it so easy to donate to verified NGOs. I can track exactly where my money goes!"</p>
+                        <div class="d-flex align-items-center">
+                            <img src="https://images.unsplash.com/photo-1494790108777-466fd0c3c3f7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="rounded-circle me-3" width="50" height="50" style="object-fit: cover;">
+                            <div>
+                                <h6 class="fw-bold mb-0">Riya Mehta</h6>
+                                <small class="text-muted">Donor</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up">
+                    <div class="card h-100 border-0 shadow-sm p-4">
+                        <div class="d-flex mb-3">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                        <p class="text-muted mb-3">"As an NGO, HopeShare has helped us reach more donors and manage campaigns efficiently."</p>
+                        <div class="d-flex align-items-center">
+                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="rounded-circle me-3" width="50" height="50" style="object-fit: cover;">
+                            <div>
+                                <h6 class="fw-bold mb-0">Vikram Desai</h6>
+                                <small class="text-muted">Help Foundation</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-left">
+                    <div class="card h-100 border-0 shadow-sm p-4">
+                        <div class="d-flex mb-3">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                        <p class="text-muted mb-3">"The transparency and ease of use is amazing. I recommend HopeShare to all my friends!"</p>
+                        <div class="d-flex align-items-center">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="rounded-circle me-3" width="50" height="50" style="object-fit: cover;">
+                            <div>
+                                <h6 class="fw-bold mb-0">Arjun Nair</h6>
+                                <small class="text-muted">Regular Donor</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 mb-4 mb-lg-0" data-aos="fade-right">
+                    <h2 class="fw-bold mb-4" style="color: #667eea;">Get in Touch</h2>
+                    <p class="text-muted mb-4">Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
+                    
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="bg-primary bg-opacity-10 rounded-circle p-3 me-3">
+                            <i class="fas fa-map-marker-alt text-primary"></i>
+                        </div>
+                        <div>
+                            <h6 class="fw-bold mb-1">Address</h6>
+                            <p class="text-muted mb-0">123 Charity Lane, Mumbai - 400001</p>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="bg-primary bg-opacity-10 rounded-circle p-3 me-3">
+                            <i class="fas fa-phone text-primary"></i>
+                        </div>
+                        <div>
+                            <h6 class="fw-bold mb-1">Phone</h6>
+                            <p class="text-muted mb-0">+91 98765 43210</p>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="bg-primary bg-opacity-10 rounded-circle p-3 me-3">
+                            <i class="fas fa-envelope text-primary"></i>
+                        </div>
+                        <div>
+                            <h6 class="fw-bold mb-1">Email</h6>
+                            <p class="text-muted mb-0">info@hopeshare.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links mt-4">
+                        <a href="#" class="btn btn-outline-primary rounded-circle me-2"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="btn btn-outline-primary rounded-circle me-2"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="btn btn-outline-primary rounded-circle me-2"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="btn btn-outline-primary rounded-circle me-2"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-7" data-aos="fade-left">
+                    <div class="card border-0 shadow-lg p-4">
+                        <h4 class="fw-bold mb-4">Send a Message</h4>
+                        <form>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <input type="text" class="form-control" placeholder="Your Name" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <input type="email" class="form-control" placeholder="Your Email" required>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <input type="text" class="form-control" placeholder="Subject" required>
+                            </div>
+                            <div class="mb-3">
+                                <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100 py-3">
+                                <i class="fas fa-paper-plane me-2"></i>Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-4" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+        <div class="container text-center text-white">
+            <p class="mb-0">&copy; 2025 HopeShare. All rights reserved. | Made with <i class="fas fa-heart text-danger"></i> for a better world</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+        
+        // Update navbar based on login status
+        document.addEventListener('DOMContentLoaded', function() {
+            const user = JSON.parse(localStorage.getItem('currentUser'));
+            updateNavbar(user);
+        });
+    </script>
+</body>
+</html>
