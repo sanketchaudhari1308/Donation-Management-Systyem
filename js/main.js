@@ -1,5 +1,5 @@
 // API Configuration
-const API_URL = 'https://donationmanagement-backend-2.onrender.com';
+const API_URL = 'https://donation-management-backend.onrender.com';
 
 async function debugCampaignStatus() {
     console.log('🔍 Checking campaign status...');
