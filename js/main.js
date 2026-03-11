@@ -603,15 +603,10 @@ function renderNgoDashboard(campaigns) {
                             ` : ''}
                             
                             <div class="mt-3 d-flex gap-2">
-<<<<<<< HEAD
-                            
-=======
-                                
->>>>>>> 0f1188e35e6a5cd2fbd7b4ae145a1e76e251376f
+
                                     <button class="btn btn-sm btn-success" onclick="activateCampaign('${c.id}')">
                                         <i class="fas fa-check-circle"></i> Activate
                                     </button>
-                                ` : ''}
                                 ${c.status === 'active' ? `
                                     <button class="btn btn-sm btn-outline-success" onclick="donateMoney('${c.id}')">
                                         <i class="fas fa-money-bill"></i> Add Money
