@@ -603,7 +603,7 @@ function renderNgoDashboard(campaigns) {
                             ` : ''}
                             
                             <div class="mt-3 d-flex gap-2">
-                                <button class="btn btn-sm btn-outline-primary" onclick="viewCampaignDetails('${c.id}')">
+                                
                                     <i class="fas fa-eye"></i> View
                                 </button>
                                 ${c.status === 'pending' ? `
