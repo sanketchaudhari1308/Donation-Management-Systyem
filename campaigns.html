@@ -11,8 +11,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- AOS Animation -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -101,7 +99,7 @@
             const search = document.getElementById('searchInput').value.toLowerCase();
             
             try {
-                let url = 'https://donationmanagement-backend-2.onrender.com/campaigns/?status=active';
+                let url = 'https://donation-management-backend.onrender.com/campaigns/?status=active';
                 if (category) {
                     url += `&category=${category}`;
                 }

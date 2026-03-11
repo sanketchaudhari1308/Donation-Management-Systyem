@@ -11,8 +11,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- AOS Animation -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -95,9 +93,9 @@
                                 <i class="fas fa-info-circle fs-4 me-3"></i>
                                 <div>
                                     <strong>Demo Credentials:</strong><br>
-                                    👤 User: user / user123<br>
-                                    🏢 NGO: ngo / ngo123<br>
-                                    👑 Admin: admin / admin123
+                                        User: user / user123<br>
+                                        NGO: ngo / ngo123<br>
+                                        Admin: admin / admin123
                                 </div>
                             </div>
 
@@ -157,7 +155,7 @@
         // Load campaigns for homepage
         document.addEventListener('DOMContentLoaded', async function() {
             try {
-                const response = await fetch('https://donationmanagement-backend-2.onrender.com/campaigns/?status=active');
+                const response = await fetch('https://donation-management-backend.onrender.com/campaigns/?status=active');
                 if (response.ok) {
                     const campaigns = await response.json();
                     const container = document.getElementById('homeCampaigns');
