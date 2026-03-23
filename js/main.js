@@ -835,7 +835,7 @@ function renderUserDashboard(stats, activeCampaigns) {
             return `
                 <div class="col-md-6 mb-3">
                     <div class="card h-100 campaign-card shadow-sm border-0 rounded-3">
-                        <img src="${campaign.image_url="https://plus.unsplash.com/premium_photo-1682125773446-259ce64f9dd7?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZWR1Y2F0aW9ufGVufDB8fDB8fHww" || 'https://plus.unsplash.com/premium_photo-1682125773446-259ce64f9dd7?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZWR1Y2F0aW9ufGVufDB8fDB8fHww'}" 
+                        <img src="${campaign.image_url || 'https://plus.unsplash.com/premium_photo-1682125773446-259ce64f9dd7?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZWR1Y2F0aW9ufGVufDB8fDB8fHww'}" 
                              class="card-img-top rounded-top-3" style="height: 150px; object-fit: cover;">
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-start mb-2">
